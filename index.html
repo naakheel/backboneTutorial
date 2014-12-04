@@ -19,6 +19,17 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
 
 	<script>
+
+		var UserListView = Backbone.View.extend({
+			el: '.page',
+			render: function () {
+				this.$el.html("Content should show here..!!");
+			}
+		});
+
+		var userListView = new UserListView();
+
+
 		var Router = Backbone.Router.extend({
 			routes: {
 				"": "home"
@@ -26,8 +37,8 @@
 		});
 		var router = new Router;
 		router.on('route:home', function() {      	
-      		console.log("We have loaded the homepage");
-  		})		
+			userListView.render();
+		})		
 		Backbone.history.start();
 	</script>
 </body>
